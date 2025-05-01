@@ -1,0 +1,8 @@
+#list operations
+list1=[[1,2],[3,4],[5,6]]
+l=len(list1)
+list1.append(int(input()))
+for i in list1:
+    #print(i)
+    for j in i:
+        print(f"list1[{j}]:",j)
