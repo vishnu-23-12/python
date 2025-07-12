@@ -1,1 +1,10 @@
-
+#function within a function
+def outer():
+    print("This is an outer function")
+    def inner():
+        print("This is an inner function")
+        def sub():
+            print("this is an sub program")
+        sub()
+    inner()
+outer()
