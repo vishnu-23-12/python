@@ -1,0 +1,35 @@
+def get_permutations(s):
+    """
+    Generates all permutations of a given string s.
+    """
+    result = []
+    
+    def permute_recursive(current_permutation, remaining_chars):
+        if not remaining_chars:
+            result.append("".join(current_permutation))
+            return
+
+        for i in range(len(remaining_chars)):
+            char_to_add = remaining_chars[i]
+            
+            # Create new lists for the recursive call to avoid modifying in place
+            new_current_permutation = current_permutation + [char_to_add]
+            new_remaining_chars = remaining_chars[:i] + remaining_chars[i+1:]
+            
+            permute_recursive(new_current_permutation, new_remaining_chars)
+
+    permute_recursive([], list(s))
+    return result
+
+# Example usage:
+input_string = "ABC"
+permutations = get_permutations(input_string)
+print(f"Permutations of '{input_string}':")
+for p in permutations:
+    print(p)
+
+input_string_2 = "AB"
+permutations_2 = get_permutations(input_string_2)
+print(f"\nPermutations of '{input_string_2}':")
+for p in permutations_2:
+    print(p)
